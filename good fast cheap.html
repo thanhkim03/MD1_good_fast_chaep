@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>good</p>
+<input onclick="good()" id="good" type="range" min="0" max="5"><br/>
+<p>fast</p>
+<input onclick="fast()" id="fast" type="range" min="0" max="5"><br/>
+<p>cheap</p>
+<input onclick="cheap()" id="cheap" type="range" min="0" max="5"><br/>
+<script>
+    let checkGood=false
+    function good() {
+
+        checkGood = !checkGood
+        console.log('checkGood-----',checkGood)
+        console.log('checkFast-----------',checkFast)
+        console.log('checkCheap======',checkCheap)
+        if (checkGood){
+            document.getElementById('good').value =5;
+            if (checkCheap&&checkFast){
+                document.getElementById('cheap').value=0
+                checkCheap=false
+            }
+        }
+        else {
+            document.getElementById('good').value =0;
+        }
+    }
+    let checkFast= false
+    function fast() {
+        checkFast=!checkFast
+        console.log('checkGood-----',checkGood)
+        console.log('checkFast-----------',checkFast)
+        console.log('checkCheap======',checkCheap)
+        if (checkFast){
+            document.getElementById('fast').value =5;
+            if (checkGood&&checkCheap){
+                document.getElementById("good").value=0
+                checkGood=false
+            }
+        }
+        else {
+            document.getElementById('fast').value =0;
+        }
+    }
+    let checkCheap=false
+    function cheap() {
+        checkCheap =!checkCheap
+        console.log('checkGood-----',checkGood)
+        console.log('checkFast-----------',checkFast)
+        console.log('checkCheap======',checkCheap)
+        if (checkCheap){
+            document.getElementById('cheap').value =5;
+            if (checkGood&&checkFast){
+                document.getElementById("fast").value=0
+                checkFast=false
+            }
+        }
+        else {
+            document.getElementById('cheap').value =0;
+        }
+    }
+</script>
+</body>
+</html>
